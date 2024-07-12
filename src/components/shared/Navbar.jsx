@@ -11,7 +11,7 @@ const Navbar = () => {
 
       <ul className="flex items-center text-xl text-slate-600 gap-4">
         <li>
-          <Link href="#">Recommended Places</Link>
+          <Link href="/hotels">Recommended Places</Link>
         </li>
 
         <li>

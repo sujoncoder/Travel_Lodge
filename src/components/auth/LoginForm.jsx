@@ -1,11 +1,40 @@
+"use client";
+
+import { login } from "@/app/actions";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 const LoginForm = () => {
+  const [error, setError] = useState("");
+  const router = useRouter();
+
+  const handleLoginForm = async (event) => {
+    event.preventDefault();
+    try {
+      const formData = new FormData(event.currentTarget);
+      const response = await login(formData);
+
+      if (!!response.error) {
+        setError(response.error.message);
+        toast.error(response.error.message);
+      } else {
+        toast.success("Login successfull.");
+        router.push("/bookings");
+      }
+    } catch (error) {
+      setError(error.message);
+      toast.error(error.message);
+    }
+  };
+
   return (
     <div className="flex items-center justify-center">
+      <Toaster />
       <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg">
         <h2 className="text-3xl font-bold text-center text-gray-900">Login</h2>
-        <form className="mt-6 space-y-4">
+        <form onSubmit={handleLoginForm} className="mt-6 space-y-4">
           <div className="rounded-md shadow-sm -space-y-px">
             <div>
               <label htmlFor="email-address" className="sr-only">

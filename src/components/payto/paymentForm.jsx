@@ -5,7 +5,6 @@ import { useState } from "react";
 
 const PaymentForm = ({ loggedInUser, hotelInfo, checkin, checkout }) => {
   const [error, setError] = useState("");
-  console.log(checkin);
 
   const router = useRouter();
 
@@ -37,6 +36,9 @@ const PaymentForm = ({ loggedInUser, hotelInfo, checkin, checkout }) => {
     }
   }
 
+  //console.log(loggedInUser);
+  //console.log(hotelInfo);
+
   return (
     <form className="my-8" onSubmit={onSubmit}>
       <div className="my-4 space-y-2">
@@ -66,26 +68,14 @@ const PaymentForm = ({ loggedInUser, hotelInfo, checkin, checkout }) => {
       <div className="my-4 space-y-2">
         <span>Check in</span>
         <h4 className="mt-2">
-          <input
-            type="date"
-            name="checkin"
-            value={checkin}
-            id="checkin"
-            className="w-full border rounded p-1"
-          />
+          <input type="date" name="checkin" value={checkin} id="checkin" />
         </h4>
       </div>
 
       <div className="my-4 space-y-2">
         <span>Checkout</span>
         <h4 className="mt-2">
-          <input
-            type="date"
-            name="checkout"
-            value={checkout}
-            id="checkout"
-            className="w-full border rounded p-1"
-          />
+          <input type="date" name="checkout" value={checkout} id="checkout" />
         </h4>
       </div>
 

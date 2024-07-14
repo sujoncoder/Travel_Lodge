@@ -1,21 +1,22 @@
 import HotelList from "@/components/hotel/HotelList";
-import Filter from "@/components/search/Filter";
 import Search from "@/components/search/Search";
-import { redirect } from "next/navigation";
-import { auth } from "../../../../../auth";
+import Filter from "@/components/search/filter/Filter";
 
-const HotelListPage = async ({
-  searchParams: { destination, checkin, checkout },
-}) => {
-  console.log("hotel list page", checkin, checkout);
-  const session = await auth();
-  if (!session) {
-    redirect("/login");
+const refineCategory = (category) => {
+  const decodedCategory = decodeURI(category);
+  if (decodedCategory === "undefined") {
+    return "";
   }
+  return decodedCategory;
+};
+
+const HotelListPage = ({
+  searchParams: { destination, checkin, checkout, category },
+}) => {
   return (
     <>
-      <section className="bg-[#F6F3E9] h-screen max-h-screen relative grid place-items-center bg-[url('../../public/assets/hero-bg.jpg')] bg-cover bg-no-repeat bg-center">
-        <div className="container items-center pb-12 ">
+      <section className="bg-[url('/hero-bg.jpg')] bg-cover bg-no-repeat bg-center pt-[100px] pb-[60px]">
+        <div className="container items-center py-12 ">
           <Search
             fromList={true}
             destination={destination}
@@ -24,14 +25,14 @@ const HotelListPage = async ({
           />
         </div>
       </section>
-
       <section className="py-12">
-        <div className="max-w-6xl mx-auto container grid grid-cols-12">
+        <div className="container grid grid-cols-12">
           <Filter />
           <HotelList
             destination={destination}
             checkin={checkin}
             checkout={checkout}
+            category={refineCategory(category)}
           />
         </div>
       </section>

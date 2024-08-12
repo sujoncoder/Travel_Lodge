@@ -1,4 +1,4 @@
-import mongoClientPromise from "@/database/mongoClientPromise";
+import mongoClientPromise from "@/database/mongoClientPromise.js";
 import { userModel } from "@/models/user-model";
 import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import bcrypt from "bcryptjs";

@@ -1,5 +1,5 @@
 import PaymentForm from "@/components/payto/paymentForm";
-import { getHotelById, getUserByEmail } from "@/database/queries/index";
+import { getHotelById, getUserByEmail } from "@/database/queries/index.js";
 import { getDayDifference } from "@/utils/data-utils";
 import { redirect } from "next/navigation";
 import { auth } from "../../../../../../../auth";

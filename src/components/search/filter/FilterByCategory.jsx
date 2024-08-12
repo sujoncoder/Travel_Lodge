@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 const FilterByStarCategory = () => {
   const [query, setQuery] = useState([]);
@@ -10,7 +10,11 @@ const FilterByStarCategory = () => {
   const pathname = usePathname();
   const { replace } = useRouter();
 
-  const params = new URLSearchParams(searchParams);
+  // Memoize params to avoid unnecessary effect reruns
+  const params = useMemo(
+    () => new URLSearchParams(searchParams),
+    [searchParams]
+  );
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -33,7 +37,7 @@ const FilterByStarCategory = () => {
       const queryInCategory = decodedCategory.split("|");
       setQuery(queryInCategory);
     }
-  }, []);
+  }, [params]);
 
   useEffect(() => {
     if (query.length > 0) {
@@ -42,7 +46,7 @@ const FilterByStarCategory = () => {
       params.delete("category");
     }
     replace(`${pathname}?${params.toString()}`);
-  }, [query]);
+  }, [query, params, pathname, replace]);
 
   return (
     <div className="p-2 border-2 rounded-md border-gray-300 shadow">

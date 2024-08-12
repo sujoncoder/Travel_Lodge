@@ -1,10 +1,10 @@
+import mongoClientPromise from "@/database/mongoClientPromise";
 import { userModel } from "@/models/user-model";
 import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import bcrypt from "bcryptjs";
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
-import mongoClientPromise from "./src/database/mongoClientPromise";
 
 export const {
   handlers: { GET, POST },

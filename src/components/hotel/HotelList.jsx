@@ -1,6 +1,6 @@
+import { getAllHotels } from "@/database/queries";
 import HotelCard from "./HotelCard";
 import NoHotels from "./NoHotel";
-import { getAllHotels } from "/src/database/queries/index.js";
 
 const HotelList = async ({ destination, checkin, checkout, category }) => {
   const allHotels = await getAllHotels(

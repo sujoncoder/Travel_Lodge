@@ -1,5 +1,5 @@
+import { getReviewsForAHotel } from "@/database/queries";
 import Link from "next/link";
-import { getReviewsForAHotel } from "/src/database/queries/index.js";
 
 const HotelReviewNumber = async ({ id }) => {
   const reviews = await getReviewsForAHotel(id);

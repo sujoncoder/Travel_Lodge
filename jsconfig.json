@@ -13,8 +13,7 @@
       "@/*": ["src/*"],
       "@/database/*": ["src/database/*"],
       "@/components/*": ["src/components/*"],
-      "@/config/*": ["src/config/*"],
-      "@/models/*": ["src/models/*"]
+      "@/config/*": ["src/config/*"]
     }
   },
   "include": ["src/**/*"]

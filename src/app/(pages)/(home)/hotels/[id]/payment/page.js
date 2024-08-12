@@ -2,10 +2,7 @@ import PaymentForm from "@/components/payto/paymentForm";
 import { getDayDifference } from "@/utils/data-utils";
 import { redirect } from "next/navigation";
 import { auth } from "../../../../../../../auth";
-import {
-  getHotelById,
-  getUserByEmail,
-} from "../../../../../../database/queries/index";
+import { getHotelById, getUserByEmail } from "/src/database/queries/index.js";
 
 const PaymentPage = async ({
   params: { id },

@@ -6,7 +6,7 @@ import { auth } from "../../../../../auth";
 import {
   getBookingsByUser,
   getUserByEmail,
-} from "/src/database/queries/index.js";
+} from "../../../../database/queries/index";
 
 const BookingsPage = async () => {
   const session = await auth();

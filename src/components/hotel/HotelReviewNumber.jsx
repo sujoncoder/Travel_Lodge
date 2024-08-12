@@ -1,4 +1,4 @@
-import { getReviewsForAHotel } from "@/database/queries";
+import { getReviewsForAHotel } from "";
 import Link from "next/link";
 
 const HotelReviewNumber = async ({ id }) => {

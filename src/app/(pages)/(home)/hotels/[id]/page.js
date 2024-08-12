@@ -1,7 +1,7 @@
 import Gallery from "@/components/hotel/details/Gallery";
 import Overview from "@/components/hotel/details/Overview";
 import Summary from "@/components/hotel/details/Summary";
-import { getHotelById } from "../../../../../database/queries/index";
+import { getHotelById } from "@/database/queries/index";
 
 const DetailsPage = async ({
   params: { id },

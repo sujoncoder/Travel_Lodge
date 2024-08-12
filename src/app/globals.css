@@ -3,7 +3,11 @@
 @tailwind utilities;
 
 .container {
-  @apply max-w-7xl mx-auto w-full px-4;
+  @apply max-w-6xl mx-auto w-full px-4;
+}
+
+.action-board {
+  @apply max-w-5xl mx-auto w-full px-4;
 }
 
 .btn-disabled {

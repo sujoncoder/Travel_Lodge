@@ -1,8 +1,8 @@
 import PaymentForm from "@/components/payto/paymentForm";
-import { getHotelById, getUserByEmail } from "@/Database/queries";
 import { getDayDifference } from "@/utils/data-utils";
 import { redirect } from "next/navigation";
 import { auth } from "../../../../../../../auth";
+import { getHotelById, getUserByEmail } from "/src/database/queries/index.js";
 
 const PaymentPage = async ({
   params: { id },
@@ -28,13 +28,24 @@ const PaymentPage = async ({
   return (
     <section className="container">
       <div className="p-6 rounded-lg max-w-xl mx-auto my-12 mt-[100px]">
-        <h2 className="font-bold text-2xl">Payment Details</h2>
-        <p className="text-gray-600 text-sm">
-          You have picked <b>{hotelInfo?.name}</b> and total price is{" "}
-          <b>${cost}</b>{" "}
-          {hasCheckInCheckOut && `for ${getDayDifference(checkin, checkout)}`}{" "}
-          day(s).
+        <h2 className="font-bold text-2xl text-center my-4">Payment Details</h2>
+        <p className="text-gray-600 text-sm text-center mb-4">
+          You have picked{" "}
+          <span className="font-semibold text-gray-800">{hotelInfo?.name}</span>{" "}
+          and total price is
+          <span className="font-semibold text-gray-800"> ${cost}</span>
+          {hasCheckInCheckOut && (
+            <>
+              {" "}
+              for{" "}
+              <span className="font-semibold text-gray-800">
+                {getDayDifference(checkin, checkout)}
+              </span>{" "}
+              day(s).
+            </>
+          )}
         </p>
+
         <PaymentForm
           loggedInUser={loggedInUser}
           hotelInfo={hotelInfo}

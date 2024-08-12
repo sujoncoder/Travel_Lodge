@@ -15,8 +15,8 @@ const HotelListPage = ({
 }) => {
   return (
     <>
-      <section className="bg-[url('/hero-bg.jpg')] bg-cover bg-no-repeat bg-center pt-[100px] pb-[60px]">
-        <div className="container items-center py-12 ">
+      <section className="bg-[url('../../public/assets/hero-bg.jpg')] bg-cover bg-no-repeat bg-center py-10">
+        <div className="items-center py-12 ">
           <Search
             fromList={true}
             destination={destination}
@@ -25,15 +25,20 @@ const HotelListPage = ({
           />
         </div>
       </section>
-      <section className="py-12">
-        <div className="container grid grid-cols-12">
-          <Filter />
-          <HotelList
-            destination={destination}
-            checkin={checkin}
-            checkout={checkout}
-            category={refineCategory(category)}
-          />
+
+      <section className="py-12 border-2 bg-gray-100">
+        <div className="container mx-auto grid grid-cols-12 gap-6">
+          <div className="col-span-12 lg:col-span-3 p-4 bg-white rounded-md shadow-lg">
+            <Filter />
+          </div>
+          <div className="col-span-12 lg:col-span-9 p-4 bg-white rounded-md shadow-lg">
+            <HotelList
+              destination={destination}
+              checkin={checkin}
+              checkout={checkout}
+              category={refineCategory(category)}
+            />
+          </div>
         </div>
       </section>
     </>

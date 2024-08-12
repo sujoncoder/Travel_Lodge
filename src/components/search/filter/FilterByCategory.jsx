@@ -23,8 +23,6 @@ const FilterByStarCategory = () => {
       const filtered = query.filter((item) => item !== name);
       setQuery(filtered);
     }
-
-    console.log(query);
   };
 
   useEffect(() => {
@@ -47,60 +45,65 @@ const FilterByStarCategory = () => {
   }, [query]);
 
   return (
-    <div>
-      <h3 className="font-bold text-lg">Star Category</h3>
-      <form action="" className="flex flex-col gap-2 mt-2">
-        <label htmlFor="fiveStar">
+    <div className="p-2 border-2 rounded-md border-gray-300 shadow">
+      <h3 className="font-bold text-lg mb-4">Star Category</h3>
+      <form action="" className="flex flex-col gap-1">
+        <label htmlFor="fiveStar" className="flex items-center">
           <input
             type="checkbox"
             name="5"
             checked={query.includes("5")}
             id="fiveStar"
             onChange={handleChange}
+            className="mr-2"
           />
           5 Star
         </label>
 
-        <label htmlFor="fourStar">
+        <label htmlFor="fourStar" className="flex items-center">
           <input
             type="checkbox"
             name="4"
             checked={query.includes("4")}
             id="fourStar"
             onChange={handleChange}
+            className="mr-2"
           />
           4 Star
         </label>
 
-        <label htmlFor="threeStar">
+        <label htmlFor="threeStar" className="flex items-center">
           <input
             type="checkbox"
             name="3"
             checked={query.includes("3")}
             id="threeStar"
             onChange={handleChange}
+            className="mr-2"
           />
           3 Star
         </label>
 
-        <label htmlFor="twoStar">
+        <label htmlFor="twoStar" className="flex items-center">
           <input
             type="checkbox"
             name="2"
             checked={query.includes("2")}
             id="twoStar"
             onChange={handleChange}
+            className="mr-2"
           />
           2 Star
         </label>
 
-        <label htmlFor="oneStar">
+        <label htmlFor="oneStar" className="flex items-center">
           <input
             type="checkbox"
             name="1"
             checked={query.includes("1")}
             id="oneStar"
             onChange={handleChange}
+            className="mr-2"
           />
           1 Star
         </label>

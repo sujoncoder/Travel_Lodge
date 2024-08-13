@@ -1,6 +1,6 @@
-import HotelList from "../../../../components/hotel/HotelList";
-import Search from "../../../../components/search/Search";
-import Filter from "../../../../components/search/filter/Filter";
+import HotelList from "@/components/hotel/HotelList";
+import Filter from "@/components/search/filter/Filter";
+import Search from "@/components/search/Search";
 
 const refineCategory = (category) => {
   const decodedCategory = decodeURI(category);

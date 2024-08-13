@@ -1,7 +1,7 @@
 import PastBooking from "@/components/user/booking/PastBooking";
 import UpcomingBooking from "@/components/user/booking/UpcomingBooking";
 import ProfileInfo from "@/components/user/ProfileInfo";
-import { getBookingsByUser, getUserByEmail } from "@/database/queries/index.js";
+import { getBookingsByUser, getUserByEmail } from "@/db/queries/index";
 import { redirect } from "next/navigation";
 import { auth } from "../../../../../auth";
 

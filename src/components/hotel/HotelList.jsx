@@ -1,5 +1,5 @@
+import { getAllHotels } from "@/db/queries/index";
 import NoHotels from "../../components/hotel/NoHotel";
-import { getAllHotels } from "../../database/queries/index";
 import HotelCard from "./HotelCard";
 
 const HotelList = async ({ destination, checkin, checkout, category }) => {
